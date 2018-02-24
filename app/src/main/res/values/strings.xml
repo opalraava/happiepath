@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">HappiePath</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Happie Pathfinder</string>
+    <string name="go_happie">Go to Happie Channel</string>
 </resources>
