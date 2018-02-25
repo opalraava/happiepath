@@ -15,8 +15,9 @@ import java.util.Vector;
  */
 
 public class DrawView extends View {
+    public boolean isRunning = true;
     public int max_mode = 6;
-    public int mode = 5;
+    public int mode = 0;
 
     Paint paint = new Paint();
 
@@ -41,29 +42,29 @@ public class DrawView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
-        switch (mode) {
-            case 0:
-                for (int i = 0; i < 100; i++) drawRandomLine(canvas);
-                break;
-            case 1:
-                for (int i = 0; i < 1000; i++) drawRandomLine(canvas);
-                break;
-            case 2:
-                for (int i = 0; i < 42; i++) drawRandomLine(canvas);
-                break;
-            case 3:
-                drawMatrixRandomColors(canvas);
-                break;
-            case 4:
-                drawGray(canvas);
-                break;
-            case 5:
-                drawMatrixGradient(canvas);
-                break;
-        }
-
-
-
+        if (isRunning == true)
+            switch (mode) {
+                case 0:
+                    for (int i = 0; i < 100; i++) drawRandomLine(canvas);
+                    break;
+                case 1:
+                    for (int i = 0; i < 1000; i++) drawRandomLine(canvas);
+                    break;
+                case 2:
+                    for (int i = 0; i < 42; i++) drawRandomLine(canvas);
+                    break;
+                case 3:
+                    drawMatrixRandomColors(canvas);
+                    break;
+                case 4:
+                    drawGray(canvas);
+                    break;
+                case 5:
+                    drawMatrixGradient(canvas);
+                    break;
+            }
+        else
+            drawGray(canvas);
     }
 
     private class rgb_t { public int r, g, b; }
@@ -117,9 +118,9 @@ public class DrawView extends View {
         int height = canvas.getHeight();
 
         // the actual parameters to this drawing algorithm
-        int num_rows = width/20;
-        int num_cols = height/20;
-        float point_radius = 5.0f;
+        int num_rows = width/50;
+        int num_cols = height/50;
+        float point_radius = 7.0f;
 
         // offset to draw the pixel in the middle...
         int x_offs = width / num_cols / 2;
