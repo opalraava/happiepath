@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     DrawView drawView;
     final Handler myHandler = new Handler();
+    IntentLauncher intentLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Intent launcher
+        intentLauncher = new IntentLauncher(this);
+
+        // Initialize the draw view
         drawView = (DrawView) findViewById(R.id.drawview);
         drawView.mode = 0;
 
@@ -88,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.go_happie) {
+            intentLauncher.youtubeDisplayChannel("UCBsuOBu-dxj5bx1KMgmar5g");
             return true;
         }
 
